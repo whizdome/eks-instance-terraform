@@ -15,8 +15,8 @@ Before you begin, ensure you have the following tools installed:
 
 1. Clone this repository:
    ```bash
-   git clone <your-repo-url>
-   cd <your-repo-directory>
+   git clone https://github.com/whizdome/eks-instance-terraform.git
+   cd eks-instance-terraform
    ```
 
 2. Initialize Terraform:
