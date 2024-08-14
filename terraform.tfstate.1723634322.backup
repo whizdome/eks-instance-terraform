@@ -1,0 +1,91 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.4",
+  "serial": 543,
+  "lineage": "1374f3fb-ebee-c2ed-1af8-76f55df686da",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.eks",
+      "mode": "data",
+      "type": "aws_iam_policy_document",
+      "name": "cni_ipv6_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.eks",
+      "mode": "managed",
+      "type": "aws_iam_policy",
+      "name": "cni_ipv6_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.eks.module.eks_managed_node_group[\"cluster-wg\"].module.user_data",
+      "mode": "data",
+      "type": "cloudinit_config",
+      "name": "linux_eks_managed_node_group",
+      "provider": "provider[\"registry.terraform.io/hashicorp/cloudinit\"]",
+      "instances": []
+    },
+    {
+      "module": "module.eks.module.kms",
+      "mode": "managed",
+      "type": "aws_kms_external_key",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-west-2:533267029473:vpc/vpc-0d908707a10d8341f",
+            "assign_generated_ipv6_cidr_block": false,
+            "cidr_block": "10.0.0.0/16",
+            "default_network_acl_id": "acl-0bd685b828f007225",
+            "default_route_table_id": "rtb-05e4960096d22638b",
+            "default_security_group_id": "sg-047802de1cb25ef8e",
+            "dhcp_options_id": "dopt-083f3700ee63679bb",
+            "enable_dns_hostnames": true,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "id": "vpc-0d908707a10d8341f",
+            "instance_tenancy": "default",
+            "ipv4_ipam_pool_id": null,
+            "ipv4_netmask_length": null,
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_network_border_group": "",
+            "ipv6_ipam_pool_id": "",
+            "ipv6_netmask_length": 0,
+            "main_route_table_id": "rtb-05e4960096d22638b",
+            "owner_id": "533267029473",
+            "tags": {
+              "Environment": "dev",
+              "Name": "eks-vpc",
+              "Terraform": "true"
+            },
+            "tags_all": {
+              "Environment": "dev",
+              "Name": "eks-vpc",
+              "Terraform": "true"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "create_before_destroy": true
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
