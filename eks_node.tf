@@ -1,5 +1,5 @@
 resource "aws_instance" "kubectl-server" {
-  ami                         = "ami-0075013580f6322a1"
+  ami                         = "ami-007868005aea67c54"
   key_name                    = "mainkey"
   instance_type               = "t2.micro"
   associate_public_ip_address = true

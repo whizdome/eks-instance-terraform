@@ -1,3 +1,4 @@
+# IAM Role for EKS Cluster
 resource "aws_iam_role" "master" {
   name = "ed-eks-master"
 
@@ -17,6 +18,7 @@ resource "aws_iam_role" "master" {
 POLICY
 }
 
+# IAM Policies for EKS Cluster
 resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.master.name
@@ -32,6 +34,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
   role       = aws_iam_role.master.name
 }
 
+# IAM Role for Worker Nodes
 resource "aws_iam_role" "worker" {
   name = "ed-eks-worker"
 
@@ -51,6 +54,7 @@ resource "aws_iam_role" "worker" {
 POLICY
 }
 
+# IAM Policy for Autoscaler
 resource "aws_iam_policy" "autoscaler" {
   name   = "ed-eks-autoscaler-policy"
   policy = <<EOF
@@ -75,6 +79,7 @@ resource "aws_iam_policy" "autoscaler" {
 EOF
 }
 
+# IAM Policies for Worker Nodes
 resource "aws_iam_role_policy_attachment" "AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
   role       = aws_iam_role.worker.name
@@ -110,6 +115,7 @@ resource "aws_iam_role_policy_attachment" "autoscaler" {
   role       = aws_iam_role.worker.name
 }
 
+# IAM Instance Profile for Worker Nodes
 resource "aws_iam_instance_profile" "worker" {
   depends_on = [aws_iam_role.worker]
   name       = "ed-eks-worker-new-profile"
